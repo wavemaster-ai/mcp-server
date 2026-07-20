@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "wavemaster": {
+      "url": "https://wosilzqqvhdmpdvhcfyu.supabase.co/functions/v1/mcp"
+    },
+    "wavemaster-me": {
+      "url": "https://wosilzqqvhdmpdvhcfyu.supabase.co/functions/v1/mcp-me"
+    }
+  }
+}
