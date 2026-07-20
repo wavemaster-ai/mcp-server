@@ -1,0 +1,21 @@
+{
+  "public_endpoint": "https://wosilzqqvhdmpdvhcfyu.supabase.co/functions/v1/mcp",
+  "personal_endpoint": "https://wosilzqqvhdmpdvhcfyu.supabase.co/functions/v1/mcp-me",
+  "transport": "mcp-streamable-http",
+  "spec_version": "2025-06-18",
+  "public_tools": [
+    { "name": "get_forecast", "title": "Previsão de surf de um pico", "read_only": true },
+    { "name": "melhor_dia_da_semana", "title": "Melhor dia da semana para surfar num pico", "read_only": true },
+    { "name": "melhores_praias_hoje", "title": "Melhores praias para surfar hoje (por país)", "read_only": true },
+    { "name": "praias_perto_de_mim", "title": "Praias surfáveis próximas de uma coordenada", "read_only": true },
+    { "name": "comparar_spots", "title": "Comparar previsão de múltiplos spots", "read_only": true },
+    { "name": "melhor_horario_hoje", "title": "Melhor horário para surfar hoje num pico", "read_only": true },
+    { "name": "recomendar_praia_nivel", "title": "Recomendar praia por nível do surfista", "read_only": true },
+    { "name": "resumo_semana_pais", "title": "Resumo semanal de surf por país", "read_only": true }
+  ],
+  "personal_tools": [
+    { "name": "meus_favoritos_hoje", "title": "Condições hoje nos meus picos favoritos", "read_only": true, "requires_auth": true },
+    { "name": "meus_alertas_ativos", "title": "Meus alertas de surf ativos", "read_only": true, "requires_auth": true },
+    { "name": "minha_ultima_sessao", "title": "Minha última sessão de surf registrada", "read_only": true, "requires_auth": true }
+  ]
+}
