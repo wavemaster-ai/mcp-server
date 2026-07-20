@@ -1,0 +1,25 @@
+name: MCP endpoint health check
+
+on:
+  schedule:
+    - cron: "0 12 * * 1" # every Monday 12:00 UTC
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: tools/list on public endpoint
+        run: |
+          set -e
+          RESPONSE=$(curl -sS -w "\n%{http_code}" \
+            https://wosilzqqvhdmpdvhcfyu.supabase.co/functions/v1/mcp \
+            -H "Content-Type: application/json" \
+            -H "Accept: application/json, text/event-stream" \
+            -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}')
+          STATUS=$(echo "$RESPONSE" | tail -n1)
+          BODY=$(echo "$RESPONSE" | sed '$d')
+          echo "HTTP $STATUS"
+          echo "$BODY" | head -c 500
+          test "$STATUS" = "200"
+          echo "$BODY" | grep -q '"get_forecast"'
